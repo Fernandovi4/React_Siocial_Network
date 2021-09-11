@@ -1,0 +1,12 @@
+.link{
+    color: black;
+    font-weight: bold;
+}
+
+.link:hover{
+    color: white;
+}
+
+.active{
+    color: #2196f3;
+}

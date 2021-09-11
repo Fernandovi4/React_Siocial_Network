@@ -1,0 +1,10 @@
+.message{
+    background-color: white;
+    padding: 3px 5px;
+    border-radius: .3em;
+    align-self: flex-start;
+}
+
+.message[autorId='2']{
+    align-self: flex-end;
+}

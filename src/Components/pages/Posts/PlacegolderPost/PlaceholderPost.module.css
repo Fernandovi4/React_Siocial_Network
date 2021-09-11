@@ -1,0 +1,98 @@
+.singlePost{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+    border-radius: 5px;
+    border: 1px solid midnightblue;
+    padding: 5px 10px;
+    background-color: ghostwhite;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+
+}
+
+.singlePost:hover{
+
+    transition: .5s;
+    box-shadow: 1px 5px 13px 4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 5px 13px 4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 5px 13px 4px rgba(0,0,0,0.75);
+}
+
+
+.title{
+    margin: 0;
+    display: inline;
+}
+
+.id{
+    color: midnightblue;
+    font-weight: bold;
+}
+
+.text{
+    font-size: .7em;
+}
+
+.singlePostInner{
+    width: 80%;
+}
+
+.buttonsWrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2em;
+    color: white;
+    height: 2em;
+    width: 110px;
+}
+
+.editBtn{
+    background-color: darkgreen;
+}
+
+.removeBtn{
+    background-color: crimson;
+}
+
+.btn:hover{
+    cursor: pointer;
+    -webkit-box-shadow: 0 5px 10px 8px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0 5px 10px 8px rgba(34, 60, 80, 0.2);
+    box-shadow: 0 5px 10px 8px rgba(34, 60, 80, 0.2);
+}
+
+.btn:active{
+    box-shadow: none;
+}
+
+.textEditable{
+    color: green;
+}
+
+.text[contentEditable*="true"]{
+    font-weight: bold;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px dotted green;
+    padding: 15px;
+    font-size: 1.5em;
+    transition: .2s;
+}
+
+.text:not([contentEditable*="true"]){
+    transition: .2s;
+}
+
+.text[contentEditable*="true"]:hover{
+    cursor: text;
+}

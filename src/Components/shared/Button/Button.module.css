@@ -1,0 +1,24 @@
+.buttonComponent{
+    padding: 5px 10px;
+    color: white;
+    background-color: midnightblue;
+    border: none;
+    border-radius: .5em;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.buttonComponent:hover{
+    cursor: pointer;
+    background-color: #3f51b5;
+    transition: .3s;
+    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+.buttonComponent:not(hover){
+    transition: .3s;
+}
+
+.buttonComponent:active{
+    box-shadow: none;
+}

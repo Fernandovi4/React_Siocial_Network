@@ -1,0 +1,27 @@
+.inputs{
+    width: 30vw;
+    padding: 10px 0 ;
+}
+
+.inputsInner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 32vw;
+}
+
+.input{
+    border: 1px solid midnightblue;
+    /*border-radius: 5px;*/
+    /*margin-right: 10px;*/
+    /*padding: 5px;*/
+    margin-bottom: 10px;
+    width: 25vw;
+}
+
+.input:focus{
+    outline: midnightblue solid 1px;
+}
+.label{
+    font-weight: bold;
+}

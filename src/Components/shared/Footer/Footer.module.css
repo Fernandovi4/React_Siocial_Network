@@ -1,0 +1,16 @@
+.footer{
+    font-family: 'Hahmlet', serif;
+    color: white;
+    background: rgb(92, 99, 177);
+    /*background: linear-gradient(180deg, rgba(92, 99, 177, 1) 0%, rgba(32, 18, 61, 1) 100%);*/
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    padding: 10px 30px;
+    width: 1140px;
+    margin: 0 auto;
+}
+
+p{
+    margin: 0;
+}

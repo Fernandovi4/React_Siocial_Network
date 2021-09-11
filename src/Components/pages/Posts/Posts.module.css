@@ -1,0 +1,30 @@
+.btn{
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: white;
+    background-color: midnightblue;
+    border: none;
+    box-shadow: none;
+    font-size: 1.1em;
+    text-transform: uppercase;
+
+    display: block;
+}
+
+.btn:hover{
+    cursor: pointer;
+    -webkit-box-shadow: 0 5px 10px 8px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0 5px 10px 8px rgba(34, 60, 80, 0.2);
+    box-shadow: 0 5px 10px 8px rgba(34, 60, 80, 0.2);
+}
+
+.btn:active{
+    box-shadow: none;
+}
+.header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    align-items: center;
+}

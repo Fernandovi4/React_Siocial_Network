@@ -1,0 +1,105 @@
+.usersCards__wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 10px;
+    padding: 10px;
+    color: midnightblue;
+
+}
+
+.pageDisplayer{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.pageDisplayer__number{
+    /*color: green;*/
+    font-size: 1.1em;
+}
+
+.pageDisplayer__number:hover{
+    cursor: pointer;
+}
+
+.selected{
+    font-weight: bold;
+    color: white;
+}
+
+.userCard{
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    border-radius: 2em;
+    background-color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    column-gap: 20px;
+}
+
+/*.userCard:hover{*/
+/*    background-color: gainsboro;*/
+/*}*/
+
+.userCard__btn{
+
+    color: white;
+    text-transform: uppercase;
+    padding: 5px 10px 3px;
+    width: 100px;
+    border-radius: 2em;
+    border: none;
+}
+
+.unfollow__btn{
+    background-color: midnightblue;
+}
+
+.unfollow__btn:hover{
+    background-color: #090952;
+}
+
+.follow__btn{
+    background-color: darkgreen;
+}
+
+.follow__btn:hover{
+    background-color: #002800;
+}
+
+.userCard__btn:hover{
+    cursor: pointer;
+
+}
+
+.userCard__innerLeft{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userCard__innerRight{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 80%;
+}
+
+.userCard__infoWrapper,
+.userCard__locationWrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+}
+
+span{
+    font-weight: bold;
+    color: midnightblue;
+}

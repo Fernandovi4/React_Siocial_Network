@@ -1,0 +1,28 @@
+.myFriendInfo{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.myFriendInfo:hover{
+    cursor: pointer;
+    /*background-color: gainsboro;*/
+    box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+}
+
+.friendName{
+    color: midnightblue;
+    text-transform: uppercase;
+}
+
+.myFriendAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.friendName{
+    margin: 0;
+}
