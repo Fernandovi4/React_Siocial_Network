@@ -1,48 +1,34 @@
 import React from 'react';
-// import Users from "./Users";
 import {connect} from "react-redux";
 import {
-  followAC,
-  setCurrentPageAC, setTotalUsersCountAC,
-  setUsersAC, toogleLoaderAC,
-  unfollowAC
+  follow,
+  setCurrentPage, setTotalUsersCount,
+  setUsers, toggleLoader, toogleFollowingProgress,
+  unfollow
 } from "../../../redux/users-reduser";
 
-import axios from "axios";
 import UsersFuncComponent from "./UsersFuncComponent";
 import Loader from "../../shared/Loader/Loader";
+import {usersApi} from "../../../Api/Api-service";
 
 class UsersClassComponent extends React.Component {
 
-
-  apiURL = `https://social-network.samuraijs.com/api/1.0/users`
-
   componentDidMount() {
     this.props.toggleLoader(true)
-    console.log('componentDidMount: ', this.props.currentPage)
-    axios.get(`${this.apiURL}?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-      .then((response) => {
-        console.log('responce: ', response)
-
-        this.props.setUsers(response.data.items)
-        this.props.setTotalUsersCount(response.data.totalCount)
+    usersApi.getUsers(this.props.currentPage,this.props.pageSize)
+      .then((data) => {
+        this.props.setUsers(data.items)
+        this.props.setTotalUsersCount(data.totalCount)
         this.props.toggleLoader(false)
       })
-
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log('componentDidUpdate')
-    console.log('PROPS: ', this.props)
   }
 
   onPageChange = (page) => {
     this.props.toggleLoader(true)
     this.props.setCurrentPage(page)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
-      .then((response) => {
-        console.log('responce: ', response)
-        this.props.setUsers(response.data.items)
+    usersApi.getUsers(this.props.currentPage,this.props.pageSize)
+      .then((data) => {
+        this.props.setUsers(data.items)
         this.props.toggleLoader(false)
       })
   }
@@ -60,38 +46,47 @@ class UsersClassComponent extends React.Component {
             follow={this.props.follow}
             users={this.props.users}
             onPageChange={this.onPageChange}
+            followingInProgress={this.props.followingInProgress}
+            toogleFollowingProgress={this.props.toogleFollowingProgress}
         />}
       </>
-
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps')
   return {
     users: state.usersPage.users,
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
-    isFetchingData: state.usersPage.isFetchingData
+    isFetchingData: state.usersPage.isFetchingData,
+    followingInProgress: state.usersPage.followingInProgress
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-
-
-  return {
-    follow: (userId) => dispatch(followAC(userId)),
-    unfollow: (userId) => dispatch(unfollowAC(userId)),
-    setUsers: (users) => dispatch(setUsersAC(users)),
-    setCurrentPage: (page) => dispatch(setCurrentPageAC(page)),
-    setTotalUsersCount: (totalUsersCount) => dispatch(setTotalUsersCountAC(totalUsersCount)),
-    toggleLoader: (isFetchingData) => dispatch(toogleLoaderAC(isFetchingData))
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//
+//
+//   return {
+//     follow: (userId) => dispatch(followAC(userId)),
+//     unfollow: (userId) => dispatch(unfollowAC(userId)),
+//     setUsers: (users) => dispatch(setUsersAC(users)),
+//     setCurrentPage: (page) => dispatch(setCurrentPageAC(page)),
+//     setTotalUsersCount: (totalUsersCount) => dispatch(setTotalUsersCountAC(totalUsersCount)),
+//     toggleLoader: (isFetchingData) => dispatch(toogleLoaderAC(isFetchingData))
+//   }
+// }
 
 // const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users)
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersClassComponent)
+const UsersContainer = connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleLoader,
+  toogleFollowingProgress
+})(UsersClassComponent)
 
 export default UsersContainer

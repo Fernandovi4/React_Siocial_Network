@@ -1,0 +1,17 @@
+.profileInfo__wrapper{
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    column-gap: 20px;
+}
+
+.profileInfo__titles{
+    font-weight: bolder;
+    color: midnightblue;
+}
+
+.profileInfo__img{
+    height: 100px;
+    border-radius: 50%;
+}

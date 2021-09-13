@@ -1,6 +1,8 @@
 import React from "react";
 import cl from "./Users.module.css";
 import userLogo from "../../../assets/user.jpg";
+import {NavLink} from "react-router-dom";
+import {usersApi} from "../../../Api/Api-service";
 
 const UsersFuncComponent = (
   {
@@ -9,7 +11,9 @@ const UsersFuncComponent = (
     unfollow,
     follow,
     users,
-    onPageChange
+    onPageChange,
+    followingInProgress,
+    toogleFollowingProgress
   }) => {
 
   // let pagesAmount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
@@ -40,16 +44,40 @@ const UsersFuncComponent = (
         return (
           <div className={cl.userCard} key={u.id}>
             <div className={cl.userCard__innerLeft}>
-              <img src={u.photos.small ? u.photos.small : userLogo} style={{width: '50px', height: 'auto'}}
-                   alt="user avatar"/>
+              <NavLink to={`/profile/${u.id}`}>
+                <img src={u.photos.small ? u.photos.small : userLogo} style={{width: '50px', height: 'auto'}}
+                     alt="user avatar"/>
+              </NavLink>
               <div>
                 {u.followed ?
-                  <button className={cl.userCard__btn + ' ' + cl.unfollow__btn} onClick={() => {
-                    unfollow(u.id)
-                  }}>Unfollow</button> :
-                  <button className={cl.userCard__btn + ' ' + cl.follow__btn} onClick={() => {
-                    follow(u.id)
-                  }}>Follow</button>}
+                  <button
+                    // disabled={followingInProgress.some(id => id === u.id)}
+                    className={cl.userCard__btn + ' ' + cl.unfollow__btn}
+                    onClick={() => {
+                      // toogleFollowingProgress(true, u.id)
+                      usersApi.unfollowUser(u.id)
+                        .then((response) => {
+                          if(response.data.resultCode === 0){unfollow(u.id)}
+                          // toogleFollowingProgress(false, u.id)
+                        })
+
+                      }
+                    }
+                  >Unfollow</button> :
+                  <button
+                    // disabled={followingInProgress.some(id => id === u.id)}
+                    className={cl.userCard__btn + ' ' + cl.follow__btn}
+                    onClick={() => {
+                      // toogleFollowingProgress(true, u.id)
+                      usersApi.followUser(u.id)
+                        .then((response) => {
+                          if (response.data.resultCode === 0) {follow(u.id)}
+                          // toogleFollowingProgress(false, u.id)
+                        })
+
+                      }
+                    }
+                  >Follow</button>}
               </div>
             </div>
             <div className={cl.userCard__innerRight}>

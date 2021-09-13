@@ -4,13 +4,15 @@ const SET_USERS = 'SET-USERS'
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT'
 const TOGGLE_LOADER = 'TOGGLE-LOADER'
+const FOLLOWING_IN_PROGRESS = 'FOLLOWING-IN-PROGRESS'
 
 const initialState = {
   users: [],
   pageSize: 10,
   totalUsersCount: 0,
   currentPage: 1,
-  isFetchingData: false
+  isFetchingData: false,
+  followingInProgress: []
 
 }
 
@@ -35,8 +37,6 @@ const usersReducer = (state = initialState, action) => {
       }
 
     case SET_USERS:
-      console.log('setUsers state.users: ', state.users)
-      console.log('setUsers action.users: ', action.users)
 
       return {
         ...state,
@@ -44,7 +44,7 @@ const usersReducer = (state = initialState, action) => {
       }
 
     case SET_CURRENT_PAGE:
-      console.log('ACTION.currentPage: ', action)
+
       return {
         ...state,
         currentPage: action.page
@@ -62,22 +62,33 @@ const usersReducer = (state = initialState, action) => {
         isFetchingData: action.isFetchingData
       }
 
+    case FOLLOWING_IN_PROGRESS:
+      return {
+        ...state,
+        followingInProgress: action.isFetchingData?
+          [state.followingInProgress, action.userId]:
+          state.followingInProgress.filter(el => el.id !== action.userId)
+      }
+
     default:
       return state
   }
 
 }
 
-export const followAC = (userId) => ({type: FOLLOW, userId})
+export const follow = (userId) => ({type: FOLLOW, userId})
 
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId})
+export const unfollow = (userId) => ({type: UNFOLLOW, userId})
 
-export const setUsersAC = (users) => ({type: SET_USERS, users})
+export const setUsers = (users) => ({type: SET_USERS, users})
 
-export const setCurrentPageAC = (page) => ({type: SET_CURRENT_PAGE, page})
+export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page})
 
-export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
 
-export const toogleLoaderAC = (isFetchingData) => ({type: TOGGLE_LOADER, isFetchingData})
+export const toggleLoader = (isFetchingData) => ({type: TOGGLE_LOADER, isFetchingData})
+
+export const toogleFollowingProgress = (isFetchingData, userId) => ({type: FOLLOWING_IN_PROGRESS, isFetchingData, userId})
+
 
 export default usersReducer
