@@ -1,0 +1,65 @@
+.dialogs {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    column-gap: 15px;
+}
+
+.messages {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 3px;
+}
+
+.dialogs__wrapper {
+
+}
+
+.messages__wrapper {
+    flex-basis: 50%;
+}
+
+.dialog_name {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 3px;
+}
+
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.newMessage__wrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 5px;
+}
+
+.sendBtn{
+    padding: 5px 10px;
+    color: white;
+    background-color: midnightblue;
+    border: none;
+    border-radius: .5em;
+    font-size: 1em;
+    text-transform: uppercase;
+    flex-basis: 20%;
+}
+
+.sendBtn:hover{
+    cursor: pointer;
+    background-color: #3f51b5;
+    transition: .3s;
+    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+.sendBtn:not(hover){
+    transition: .3s;
+}
+
+.sendBtn:active{
+    box-shadow: none;
+}

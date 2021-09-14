@@ -15,11 +15,6 @@ export const usersApi = {
       .then(response => response.data)
   },
 
-  authUser() {
-    return axiosInstance.get(`auth/me`)
-      .then(responce => responce.data)
-  },
-
   unfollowUser(userId) {
     return axiosInstance.delete(`follow/${userId}`)
   },
@@ -32,8 +27,13 @@ export const usersApi = {
     return axiosInstance.get(`profile/${userId}`)
       .then(responce => responce.data)
   }
+}
 
-
+export const authApi = {
+  authUser() {
+    return axiosInstance.get(`auth/me`)
+      .then(responce => responce.data)
+  },
 }
 
 

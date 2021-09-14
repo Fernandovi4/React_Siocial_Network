@@ -1,0 +1,50 @@
+.item{
+    color: midnightblue;
+    padding: 10px;
+}
+
+.post_item{
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px solid #3f51b571;
+    border-radius: .3em;
+    background-color: white;
+    padding: 10px;
+    box-shadow: inset 1px 1px 25px -10px #3f51b5;
+
+}
+
+.post_item > img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 24px -6px #3F51B5;
+
+}
+
+.post_info__wrapper{
+    padding: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.like_btn{
+    align-self: flex-start;
+    cursor: pointer;
+    border: 2px solid  #9c27b0;
+    border-radius: 1em;
+    background-color: white;
+    color: #9c27b0;
+    padding: 3px 10px;
+    font-weight: bold;
+}
+
+.like_btn:hover{
+    background-color: thistle;
+    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+.like_btn:active{
+    box-shadow: none;
+}

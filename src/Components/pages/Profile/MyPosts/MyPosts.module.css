@@ -1,0 +1,39 @@
+.post__create{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    column-gap: 10px;
+}
+
+/*.create__btn{*/
+/*    margin-left: 10px;*/
+/*    align-self: flex-end;*/
+/*    padding: 8px 20px;*/
+/*    border-radius: 5px;*/
+/*    border: none;*/
+/*    background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);*/
+/*    color: white;*/
+/*}*/
+
+.posts__wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 10px;
+    padding: 10px;
+}
+
+
+textarea{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    outline: none;
+    transition: .1s;
+}
+
+textarea:focus{
+    box-shadow: 0 0 0 2pt #3F51B5;
+}
+

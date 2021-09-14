@@ -3,7 +3,7 @@ import Loader from "../../../../shared/Loader/Loader";
 import cl from './ProfileInfo.module.css'
 
 const ProfileInfo = (props) => {
-  console.log('PROPS:', props)
+  // console.log('PROPS:', props)
 
   if(!props.selectedUser){
     return <Loader/>

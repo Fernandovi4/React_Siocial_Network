@@ -31,7 +31,7 @@ const initialState = {
 }
 
 const sidebarReducer = (state = initialState, action) => {
-  // console.log('state from sidebarReduser: ', state)
+
   return state
 }
 export default sidebarReducer

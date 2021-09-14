@@ -2,35 +2,29 @@ import React from 'react';
 import {connect} from "react-redux";
 import {
   follow,
-  setCurrentPage, setTotalUsersCount,
-  setUsers, toggleLoader, toogleFollowingProgress,
-  unfollow
+  unfollow,
+  getUsersList,
+  setUsers,
+  toogleFollowingProgress,
+  followUser,
+  unfollowUser,
+  // setCurrentPage,
+  // setTotalUsersCount,
+  // toggleLoader,
 } from "../../../redux/users-reduser";
 
 import UsersFuncComponent from "./UsersFuncComponent";
 import Loader from "../../shared/Loader/Loader";
-import {usersApi} from "../../../Api/Api-service";
 
 class UsersClassComponent extends React.Component {
 
   componentDidMount() {
-    this.props.toggleLoader(true)
-    usersApi.getUsers(this.props.currentPage,this.props.pageSize)
-      .then((data) => {
-        this.props.setUsers(data.items)
-        this.props.setTotalUsersCount(data.totalCount)
-        this.props.toggleLoader(false)
-      })
+    this.props.getUsersList(this.props.currentPage,this.props.pageSize)
   }
 
   onPageChange = (page) => {
-    this.props.toggleLoader(true)
-    this.props.setCurrentPage(page)
-    usersApi.getUsers(this.props.currentPage,this.props.pageSize)
-      .then((data) => {
-        this.props.setUsers(data.items)
-        this.props.toggleLoader(false)
-      })
+
+    this.props.getUsersList(page,this.props.pageSize)
   }
 
   render() {
@@ -48,6 +42,8 @@ class UsersClassComponent extends React.Component {
             onPageChange={this.onPageChange}
             followingInProgress={this.props.followingInProgress}
             toogleFollowingProgress={this.props.toogleFollowingProgress}
+            followUser={this.props.followUser}
+            unfollowUser={this.props.unfollowUser}
         />}
       </>
     );
@@ -82,11 +78,16 @@ const mapStateToProps = (state) => {
 const UsersContainer = connect(mapStateToProps, {
   follow,
   unfollow,
+  getUsersList,
   setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleLoader,
-  toogleFollowingProgress
+  followUser,
+  unfollowUser,
+  toogleFollowingProgress,
+  // setCurrentPage,
+  // setTotalUsersCount,
+  // toggleLoader,
+
+
 })(UsersClassComponent)
 
 export default UsersContainer

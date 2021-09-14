@@ -1,0 +1,30 @@
+.header {
+    grid-area: header;
+    background: rgb(92, 99, 177);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.header__img {
+    height: 100%
+}
+
+.header_title {
+    font-family: 'Hahmlet', serif;
+    color: white;
+    flex-basis: 75%;
+}
+
+.loginBlock{
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.navlink:hover{
+    cursor: pointer;
+    color: midnightblue;
+    font-weight: bold;
+}

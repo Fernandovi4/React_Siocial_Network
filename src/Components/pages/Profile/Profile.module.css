@@ -1,0 +1,12 @@
+
+  
+.content__img{
+    /*padding: 2px;*/
+    background-image: url(/src/assets/193.jpg);
+    background-position: bottom;
+    height: 150px;
+    /*filter: blur(2px) saturate(0.74) opacity(1);*/
+    /*-webkit-filter: blur(2px) saturate(0.74) opacity(1);*/
+   
+}  
+

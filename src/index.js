@@ -7,8 +7,6 @@ import store from './redux/redux-store'
 import {Provider} from "react-redux";
 
 
-
-// const renderEntireTree = () => {
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>
@@ -17,11 +15,5 @@ import {Provider} from "react-redux";
     </React.StrictMode>,
     document.getElementById('root')
   );
-// }
-// renderEntireTree(store.getState())
-// store.subscribe(() => {
-//   let state = store.getState()
-//   renderEntireTree(state)
-// })
 
 reportWebVitals();

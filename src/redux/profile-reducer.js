@@ -1,3 +1,5 @@
+import {usersApi} from '../Api/Api-service';
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
@@ -63,16 +65,23 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const addPostActionCreator = () => {
-  console.log('addPostActionCreator')
   return {type: ADD_POST}
 }
 
 export const updateNewPostTextActionCreator = (text) => {
-  console.log('updateNewPostTextActionCreator', text)
   return {type: UPDATE_NEW_POST_TEXT, text: text}
 }
 
-export const setUserProfile = (selectedProfile) => ({type: SET_USER_PROFILE, selectedProfile})
+export const setUserProfile = (selectedProfile) => {
+  return {type: SET_USER_PROFILE, selectedProfile}
+}
+
+export const getUserProfileInfo = (userId) => {
+  return (dispatch) => {
+    usersApi.getUsersProfile(userId)
+      .then(data => dispatch(setUserProfile(data)))
+  }
+}
 
 
 export default profileReducer
