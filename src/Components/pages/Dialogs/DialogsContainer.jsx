@@ -5,6 +5,7 @@ import {
   addMessageActionCreator,
   updateNewMessageTextActionCreator
 } from '../../../redux/dialogs-reduser';
+import {WithAuthRedirect} from "../../../hoc/WithAuthRedirect";
 
 
 const mapStateToProps = (state) => {
@@ -20,6 +21,8 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+const WithRedirect = WithAuthRedirect(Dialogs)
 
-export default SuperDialogsContainer
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(WithRedirect)
+
+export default DialogsContainer

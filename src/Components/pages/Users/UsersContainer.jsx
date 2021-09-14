@@ -7,14 +7,12 @@ import {
   setUsers,
   toogleFollowingProgress,
   followUser,
-  unfollowUser,
-  // setCurrentPage,
-  // setTotalUsersCount,
-  // toggleLoader,
+  unfollowUser
 } from "../../../redux/users-reduser";
 
 import UsersFuncComponent from "./UsersFuncComponent";
 import Loader from "../../shared/Loader/Loader";
+import {WithAuthRedirect} from "../../../hoc/WithAuthRedirect";
 
 class UsersClassComponent extends React.Component {
 
@@ -50,6 +48,8 @@ class UsersClassComponent extends React.Component {
   }
 }
 
+
+
 const mapStateToProps = (state) => {
   return {
     users: state.usersPage.users,
@@ -61,20 +61,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//
-//
-//   return {
-//     follow: (userId) => dispatch(followAC(userId)),
-//     unfollow: (userId) => dispatch(unfollowAC(userId)),
-//     setUsers: (users) => dispatch(setUsersAC(users)),
-//     setCurrentPage: (page) => dispatch(setCurrentPageAC(page)),
-//     setTotalUsersCount: (totalUsersCount) => dispatch(setTotalUsersCountAC(totalUsersCount)),
-//     toggleLoader: (isFetchingData) => dispatch(toogleLoaderAC(isFetchingData))
-//   }
-// }
+const WithRedirect = WithAuthRedirect(UsersClassComponent)
 
-// const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users)
 const UsersContainer = connect(mapStateToProps, {
   follow,
   unfollow,
@@ -82,12 +70,9 @@ const UsersContainer = connect(mapStateToProps, {
   setUsers,
   followUser,
   unfollowUser,
-  toogleFollowingProgress,
-  // setCurrentPage,
-  // setTotalUsersCount,
-  // toggleLoader,
+  toogleFollowingProgress
+})(WithRedirect)
 
 
-})(UsersClassComponent)
 
 export default UsersContainer

@@ -8,7 +8,7 @@ import Test from './Components/pages/Test/Test'
 import Settings from './Components/pages/Settings/Settings';
 import Footer from './Components/shared/Footer/Footer';
 import Posts from './Components/pages/Posts/Posts'
-import SuperDialogsContainer from "./Components/pages/Dialogs/SuperDialogsContainer";
+import SuperDialogsContainer from "./Components/pages/Dialogs/DialogsContainer";
 import NavbarContainer from "./Components/shared/Navbar/NavbarContainer";
 import UsersContainer from "./Components/pages/Users/UsersContainer";
 import ProfileContainer from "./Components/pages/Profile/ProfileContainer";
