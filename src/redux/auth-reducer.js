@@ -30,6 +30,7 @@ export const setAuthUserData = (userId, email, login) => ({
   data: {userId, email, login}
 })
 
+//thunk
 export const authUser = () => {
   return (dispatch) => {
     authApi.authUser()

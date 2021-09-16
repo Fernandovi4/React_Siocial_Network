@@ -2,7 +2,7 @@
     padding: 10px;
     display: flex;
     flex-flow: row nowrap;
-    align-items: flex-start;
+    align-items: center;
     column-gap: 20px;
 }
 

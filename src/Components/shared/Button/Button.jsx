@@ -1,11 +1,12 @@
 import React from 'react'
 import cl from './Button.module.css'
 
-export const Button = ({title, callBack}) => {
+export const Button = ({title, width}) => {
   return (
     <button
       className={cl.buttonComponent}
-      onClick={() => callBack()}>
+      style={{width: width}}
+      >
       {title}
     </button>
   )

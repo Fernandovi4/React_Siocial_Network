@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
 import {
   follow,
   unfollow,
@@ -8,22 +8,22 @@ import {
   toogleFollowingProgress,
   followUser,
   unfollowUser
-} from "../../../redux/users-reduser";
+} from '../../../redux/users-reduser';
 
-import UsersFuncComponent from "./UsersFuncComponent";
-import Loader from "../../shared/Loader/Loader";
-import {WithAuthRedirect} from "../../../hoc/WithAuthRedirect";
-import {compose} from "redux";
+import UsersFuncComponent from './UsersFuncComponent';
+import Loader from '../../shared/Loader/Loader';
+import {WithAuthRedirect} from '../../../HighOrderComponents/WithAuthRedirect';
+import {compose} from 'redux';
 
 class UsersClassComponent extends React.Component {
 
   componentDidMount() {
-    this.props.getUsersList(this.props.currentPage,this.props.pageSize)
+    this.props.getUsersList(this.props.currentPage, this.props.pageSize)
   }
 
   onPageChange = (page) => {
 
-    this.props.getUsersList(page,this.props.pageSize)
+    this.props.getUsersList(page, this.props.pageSize)
   }
 
   render() {
@@ -43,7 +43,7 @@ class UsersClassComponent extends React.Component {
             toogleFollowingProgress={this.props.toogleFollowingProgress}
             followUser={this.props.followUser}
             unfollowUser={this.props.unfollowUser}
-        />}
+          />}
       </>
     );
   }

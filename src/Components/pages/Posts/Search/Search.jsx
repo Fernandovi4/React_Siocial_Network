@@ -5,7 +5,7 @@ const Search = ({searchInPosts}) => {
 
   return (
     <div className={classes.searchComponent}>
-      <input
+      <input className={classes.search}
         type='search'
         placeholder={'Find what YOU want!'}
         onChange={event => {

@@ -24,8 +24,25 @@ export const usersApi = {
   },
 
   getUsersProfile(userId) {
+    console.log('Use profilrApi.getUsersProfile')
+    return profileApi.getUsersProfile(userId)
+  }
+}
+
+export const profileApi = {
+
+  getUsersProfile(userId) {
     return axiosInstance.get(`profile/${userId}`)
       .then(responce => responce.data)
+  },
+
+  getUsersStatus(userId){
+    return axiosInstance.get(`profile/status/${userId}`)
+      .then(responce => responce.data)
+  },
+
+  updateStatus(status){
+    return axiosInstance.put('profile/status', {status})
   }
 }
 

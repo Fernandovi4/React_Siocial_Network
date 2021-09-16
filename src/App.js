@@ -19,23 +19,32 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
-        <HeaderContainer/>
-        <NavbarContainer/>
+        <HeaderContainer />
+        <NavbarContainer />
         <div className='app-wrapper-content'>
-          <Route path='/login' render={() => <Login/>}/>
+          <Route path='/login' render={() => <Login />}
+          />
           <Route path='/profile/:userId?'
-                 render={() => <ProfileContainer />}/>
+                 render={() => <ProfileContainer />}
+          />
           <Route path='/dialogs'
-                 render={() => <SuperDialogsContainer />}/>
-          <Route path='/users' render={() => <UsersContainer/>}/>
-          <Route path='/news' render={() => <News/>}/>
-          <Route path='/music' render={() => <Music/>}/>
-          <Route path='/settings' render={() => <Settings/>}/>
-          <Route path='/test' render={() => <Test/>}/>
-          <Route path='/posts' render={() => <Posts/>}/>
+                 render={() => <SuperDialogsContainer />}
+          />
+          <Route path='/users' render={() => <UsersContainer />}
+          />
+          <Route path='/news' render={() => <News />}
+          />
+          <Route path='/music' render={() => <Music />}
+          />
+          <Route path='/settings' render={() => <Settings />}
+          />
+          <Route path='/test' render={() => <Test />}
+          />
+          <Route path='/posts' render={() => <Posts />}
+          />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

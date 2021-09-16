@@ -1,0 +1,13 @@
+.login__wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border: 1px solid midnightblue;
+    border-radius: 5px;
+    width: 30%;
+    margin: 15px auto;
+    background-color: white;
+    color: midnightblue;
+    height: 300px;
+}
+
